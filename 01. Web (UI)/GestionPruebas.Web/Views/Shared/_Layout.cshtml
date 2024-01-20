@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Portal Selección</title>
+    <link rel="stylesheet" href="https://use.typekit.net/iua0dbj.css" />
+    <link href="~/css/estilo.css" rel="stylesheet" />
+    <link href="~/css/inputs.css" rel="stylesheet" />
+    <link href="~/css/spinkit/spinkit.min.css" rel="stylesheet" />
+    <link href="~/css/toast/toast.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css">
+    
+</head>
+<body>
+    <div class="admin-layout">
+        <nav>
+            <div class="header-lista">
+                <div class="separador"></div>
+                <div>
+                    <ul class="menu_principal">
+                        <li>
+                            <a class="header-link" asp-area="" asp-controller="Aspirante" asp-action="Index">
+                                <span>
+                                    Aspirantes
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="header-link" asp-area="" asp-controller="Seleccion" asp-action="Index">
+                                <span>
+                                    Pruebas Selección
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="header-link" asp-area="" asp-controller="Salir" asp-action="Index">
+                                <span>
+                                    Cerrar Sesión
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+        <div class="main">
+            <main role="main">
+                @RenderBody()
+            </main>
+        </div>
+    </div>
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,27 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+    ViewData["Title"] = "Login";
+}
+@model LoginRequestDto
+<div class="logotipo">
+    <h1 class="logotipo-titulo">Portal <br> Selección</h1>
+</div>
+
+<div class="formulario">
+    <div class="formulario-marco">
+        <form asp-controller="Login" asp-action="IniciarSesion" method="post">
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email" value="@Model.Email">
+            @Html.ValidationMessageFor(m => m.Email)
+
+            <label for="password">Contraseña</label>
+            <input type="password" id="password" name="password" value="@Model.Password">
+            @Html.ValidationMessageFor(m => m.Password)
+
+            <button class="boton-primario" type="submit">Iniciar sesión</button>
+        </form>
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" }) 
+    </div>
+</div>

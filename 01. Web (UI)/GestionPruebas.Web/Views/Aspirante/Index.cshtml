@@ -1,0 +1,64 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Aspirantes";
+}
+@using GestionPruebas.Web.Models.Dto;
+@using X.PagedList;
+@model X.PagedList.PagedList<AspiranteResponseDto>
+
+<div class="wrapper_st">
+    <div class="wrapper">
+        <h1>Aspirantes</h1>
+        <div class="loader-container">
+            <div class="loader"></div>
+        </div>
+    </div>
+</div>
+
+
+<div class="wrapper_st">
+    <div class="wrapper">
+        <table class="tabla-responsive">
+            <thead>
+                <tr>
+                    <th>Identificación</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                </tr>
+            </thead>
+            <tbody>
+                @*@if (Model != null)
+                {
+                    @foreach (var departamentos in Model)
+                    {
+                        <tr>
+                            <td>@departamentos.NomDep</td>
+                            <td class="num">@departamentos.VentasAcumuladas</td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="2">No hay resultados disponibles.</td>
+                    </tr>
+                }*@
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+
+    var elementosNum = document.querySelectorAll('.num');
+
+    function agregarSeparadorDeMiles(numero) {
+        return numero.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+
+    elementosNum.forEach(function (elemento) {
+        var numeroSinSeparador = parseInt(elemento.textContent, 10);
+        elemento.textContent = agregarSeparadorDeMiles(numeroSinSeparador);
+    });
+
+</script>
