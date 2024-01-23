@@ -31,7 +31,16 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Transversal", "06. Transver
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "03. Application\Application\Application.csproj", "{74680348-14CB-4FBE-923A-555AA1C665FD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestionPruebas.Web", "01. Web (UI)\GestionPruebas.Web\GestionPruebas.Web.csproj", "{BFD4B920-761C-45BB-BB3F-1B5D37A77D77}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GestionPruebas.Web", "01. Web (UI)\GestionPruebas.Web\GestionPruebas.Web.csproj", "{BFD4B920-761C-45BB-BB3F-1B5D37A77D77}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "07. DataBase", "07. DataBase", "{91DE51BE-EE10-4813-83D3-9E165FF8C201}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{D09327B4-47FD-4136-9C74-05EF455B8225}"
+	ProjectSection(SolutionItems) = preProject
+		Create BD_GestionPruebas.sql = Create BD_GestionPruebas.sql
+		Create SP_Reporte_Aspirantes_Get.sql = Create SP_Reporte_Aspirantes_Get.sql
+		INSERT BD_GestionPruebas.sql = INSERT BD_GestionPruebas.sql
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +90,7 @@ Global
 		{1DE7C24E-FAFC-4567-B292-6A8FE2852B46} = {54923012-CAB9-4F93-A487-824BA04B8511}
 		{74680348-14CB-4FBE-923A-555AA1C665FD} = {A25DE5EF-E070-4A58-AF8A-AF900FCC5546}
 		{BFD4B920-761C-45BB-BB3F-1B5D37A77D77} = {045E9143-62F8-4734-901A-57EADF3BA9ED}
+		{D09327B4-47FD-4136-9C74-05EF455B8225} = {91DE51BE-EE10-4813-83D3-9E165FF8C201}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DDB2B086-9656-4FF5-8EBF-F3AAAF9CD30E}

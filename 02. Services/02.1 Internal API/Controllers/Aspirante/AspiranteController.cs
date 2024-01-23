@@ -4,9 +4,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Transversal.Dto;
 
-namespace GestionPruebas.Api.Controllers.Aspirante
+namespace GestionPruebas.Api.Controllers
 {
-
     [ApiController]
     public class AspiranteController : BaseApiController
     {

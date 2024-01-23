@@ -1,0 +1,44 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Aspirante";
+}
+@model GestionPruebas.Web.Models.Dto.AspiranteDto
+
+<div class="wrapper_st">
+    <div class="wrapper">
+        <h1>Editar Aspirante</h1>
+        <div class="loader-container">
+            <div class="loader"></div>
+        </div>
+    </div>
+</div>
+
+
+<div class="wrapper_st">
+    <div class="wrapper">
+        <form asp-action="GuardarEdicion" method="post">
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="IdTipoDocumento">Tipo Documento</label>
+                <select asp-for="IdTipoDocumento">
+                    <option value="0">Seleccione...</option>
+                    <option value="1">CC</option>
+                    <option value="2">TI</option>
+                </select>
+                <label asp-for="NumeroDocumento">Identificacion</label>
+                <input asp-for="NumeroDocumento" />
+                <label asp-for="Nombre">Nombre</label>
+                <input asp-for="Nombre"/>
+                <label asp-for="Apellido">Apellido</label>
+                <input asp-for="Apellido" />
+                <label asp-for="Direccion">Direccion</label>
+                <input asp-for="Direccion" />
+                <label asp-for="Telefono">Teléfono</label>
+                <input asp-for="Telefono" />
+            </div>
+
+            <button type="submit" class="boton-primario">Guardar</button>
+        </form>
+    </div>
+</div>
+

@@ -1,4 +1,5 @@
-﻿using GestionPruebas.Web.Models;
+﻿#nullable disable
+using GestionPruebas.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Text;
 using System.Text.Json;
@@ -31,7 +32,7 @@ namespace GestionPruebas.Web.Controllers
         public async Task<IActionResult> IniciarSesion(LoginRequestDto request)
         {
             var jsonRequest = JsonSerializer.Serialize(request);
-            var url = $"Usuario/login";
+            var url = "Usuario/login";
 
             using (var httpClient = _clientFactory.CreateClient("ApiGestionPruebas"))
             {
@@ -40,8 +41,11 @@ namespace GestionPruebas.Web.Controllers
 
                 if (response.IsSuccessStatusCode)
                 {
-                    var token = await response.Content.ReadAsStringAsync();
-                    Response.Headers.Add("Authorization", $"Bearer {token}");
+                    var userResponse = await response.Content.ReadAsStringAsync();
+                    var tokenResponse = JsonSerializer.Deserialize<TokenResponse>(userResponse);
+                    string token = tokenResponse.AccessToken;
+                    Response.Cookies.Append("Token", token);
+
                     return RedirectToAction("Index", "Home");
                 }
                 else
@@ -50,6 +54,13 @@ namespace GestionPruebas.Web.Controllers
                     return View("Index", request);
                 }
             }
+        }
+
+        public IActionResult CerrarSesion()
+        {
+            Response.Cookies.Delete("Token");
+
+            return RedirectToAction("Index", "Login");
         }
 
     }

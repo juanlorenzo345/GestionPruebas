@@ -1,0 +1,52 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Aspirante";
+}
+@model GestionPruebas.Web.Models.Dto.AspiranteDto
+
+<div class="wrapper_st">
+    <div class="wrapper">
+        <h1>Asignar Prueba a Aspirante</h1>
+        <div class="loader-container">
+            <div class="loader"></div>
+        </div>
+    </div>
+</div>
+
+
+<div class="wrapper_st">
+    <div class="wrapper">
+        <form asp-action="GuardarAsignarPrueba" method="post">
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Nombre">Nombre Aspirante</label>
+                <input asp-for="Nombre" />
+                <label asp-for="Apellido">Apellido Aspirante</label>
+                <input asp-for="Apellido" />                
+                <label asp-for="aspirantePruebaSeleccionDto.PruebaSeleccion">Prueba Seleccion</label>
+                <select asp-for="aspirantePruebaSeleccionDto.PruebaSeleccion">
+                    <option value="0">Seleccione...</option>
+                    <option value="1">Prueba Técnica .NET Nivel Junior</option>
+                    <option value="2">Prueba Técnica .NET Nivel Middle</option>
+                    <option value="3">Prueba Técnica .NET Nivel Senior</option>
+                    <option value="4">Prueba Técnica Java Nivel Junior</option>
+                    <option value="5">Prueba Técnica Java Nivel Middle</option>
+                    <option value="6">Prueba Técnica Java Nivel Senior</option>
+                </select>
+                <label asp-for="aspirantePruebaSeleccionDto.Calificacion">Calificación</label>
+                <input asp-for="aspirantePruebaSeleccionDto.Calificacion" />
+                <label asp-for="aspirantePruebaSeleccionDto.EstadoPrueba">Estado Prueba</label>
+                <select asp-for="aspirantePruebaSeleccionDto.EstadoPrueba">
+                    <option value="0">Seleccione...</option>
+                    <option value="1">Registrada</option>
+                    <option value="2">En Proceso</option>
+                    <option value="3">Terminada</option>
+                    <option value="4">Anulada</option>
+                </select>
+            </div>
+
+            <button type="submit" class="boton-primario">Guardar</button>
+        </form>
+    </div>
+</div>
+

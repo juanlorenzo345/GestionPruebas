@@ -1,0 +1,50 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Aspirante";
+}
+@model GestionPruebas.Web.Models.Dto.AspirantePruebaSeleccionDto
+
+<div class="wrapper_st">
+    <div class="wrapper">
+        <h1>Editar Prueba Asignada</h1>
+        <div class="loader-container">
+            <div class="loader"></div>
+        </div>
+    </div>
+</div>
+
+
+<div class="wrapper_st">
+    <div class="wrapper">
+        <form asp-action="GuardarAsignacion" method="post">
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <input asp-for="IdAspirante" />
+                <label asp-for="Aspirante">Aspirante</label>
+                <input asp-for="Aspirante" />
+                <label asp-for="IdPruebaSeleccion">Prueba Seleccion</label>
+                <select asp-for="IdPruebaSeleccion">
+                    <option value="0">Seleccione...</option>
+                    <option value="1">Prueba Técnica .NET Nivel Junior</option>
+                    <option value="2">Prueba Técnica .NET Nivel Middle</option>
+                    <option value="3">Prueba Técnica .NET Nivel Senior</option>
+                    <option value="4">Prueba Técnica Java Nivel Junior</option>
+                    <option value="5">Prueba Técnica Java Nivel Middle</option>
+                    <option value="6">Prueba Técnica Java Nivel Senior</option>
+                </select>
+                <label asp-for="Calificacion">Calificación</label>
+                <input asp-for="Calificacion" />
+                <label asp-for="IdEstadoPrueba">Estado Prueba</label>
+                <select asp-for="IdEstadoPrueba">
+                    <option value="0">Seleccione...</option>
+                    <option value="1">Registrada</option>
+                    <option value="2">En Proceso</option>
+                    <option value="3">Terminada</option>
+                    <option value="4">Anulada</option>
+                </select>
+            </div>
+
+            <button type="submit" class="boton-primario">Guardar</button>
+        </form>
+    </div>
+</div>

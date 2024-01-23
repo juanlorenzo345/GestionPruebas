@@ -125,12 +125,15 @@ builder.Services.AddAuthorization();
 builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 builder.Services.AddScoped<IAspiranteService, AspiranteService>();
 builder.Services.AddScoped<IPruebaSeleccionService, PruebaSeleccionService>();
-
+builder.Services.AddScoped<IAspirantePruebaSeleccionService, AspirantePruebaSeleccionService>();
+builder.Services.AddScoped<IReporteService, ReporteService>();
 
 //Repositories
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<IAspiranteRepository, AspiranteRepository>();
 builder.Services.AddScoped<IPruebaSeleccionRepository, PruebaSeleccionRepository>();
+builder.Services.AddScoped<IAspirantePruebaSeleccionRepository, AspirantePruebaSeleccionRepository>();
+builder.Services.AddScoped<IReporteRepository, ReporteRepository>();
 
 builder.Services.AddScoped<ITokenRepository, TokenRepository>();
 

@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Abstract\AspirantePruebaSeleccion\IAspirantePruebaSeleccion.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\05. Infraestructure\Infraestructure.Interface\Infraestructure.Interface.csproj" />
   </ItemGroup>
 

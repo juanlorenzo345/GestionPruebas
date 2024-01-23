@@ -18,7 +18,7 @@ namespace Infraestructure.Repository
 
         public async Task<AspiranteGetResponse> GetAspiranteAsync()
         {
-            var response = await tasksDbContext.Aspirantes.ToListAsync();
+            var response = await tasksDbContext.Aspirantes.Where(p => p.Estado).OrderByDescending(p => p.FechaActualizacion).ToListAsync();
             return new AspiranteGetResponse { Success = true, Aspirantes = response };
         }
 
@@ -37,7 +37,6 @@ namespace Infraestructure.Repository
                     Apellido = response.Apellido,
                     Direccion = response.Direccion,
                     Telefono = response.Telefono,
-                    IdEstadoPrueba = response.IdEstadoPrueba,
                     Estado = response.Estado,
                     IdUsuarioActualizacion = response.IdUsuarioActualizacion,
                     FechaActualizacion = response.FechaActualizacion
@@ -68,7 +67,6 @@ namespace Infraestructure.Repository
                     Apellido = request.Apellido,
                     Direccion = request.Direccion,
                     Telefono  = request.Telefono,
-                    IdEstadoPrueba = request.IdEstadoPrueba,
                     Estado = true,
                     IdUsuarioActualizacion = request.IdUsuarioActualizacion,
                     FechaActualizacion = DateTime.Now,
@@ -83,7 +81,6 @@ namespace Infraestructure.Repository
                 entity.Apellido = request.Apellido;
                 entity.Direccion = request.Direccion;
                 entity.Telefono = request.Telefono;
-                entity.IdEstadoPrueba = request.IdEstadoPrueba;
                 entity.Estado = request.Estado;
                 entity.IdUsuarioActualizacion = request.IdUsuarioActualizacion;
                 entity.FechaActualizacion = DateTime.Now;
@@ -109,7 +106,6 @@ namespace Infraestructure.Repository
                 Apellido = request.Apellido,
                 Direccion = request.Direccion,
                 Telefono = request.Telefono,
-                IdEstadoPrueba = request.IdEstadoPrueba,
                 Estado = request.Estado,
                 IdUsuarioActualizacion = request.IdUsuarioActualizacion,
                 FechaActualizacion = DateTime.Now,

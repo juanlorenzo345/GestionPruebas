@@ -6,6 +6,7 @@ using Transversal.Dto;
 
 namespace GestionPruebas.Api.Controllers
 {
+    [ApiController]
     public class PruebaSeleccionController : BaseApiController
     {
         private readonly IPruebaSeleccionService pruebaSeleccionService;
@@ -44,15 +45,7 @@ namespace GestionPruebas.Api.Controllers
         [Route("UpdateAsync")]
         public async Task<IActionResult> UpdateAsync(PruebaSeleccionRequest request)
         {
-            if (request == null || string.IsNullOrEmpty(request.NombreDescripcion))
-            {
-                return BadRequest(new PruebaSeleccionResponse
-                {
-                    Error = "Missing PruebaSeleccion details",
-                    ErrorCode = "L01"
-                });
-            }
-
+            
             var response = await pruebaSeleccionService.UpdateAsync(request);
 
             if (!response.Success)

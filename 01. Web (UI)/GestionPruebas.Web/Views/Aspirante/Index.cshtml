@@ -4,7 +4,7 @@
 }
 @using GestionPruebas.Web.Models.Dto;
 @using X.PagedList;
-@model X.PagedList.PagedList<AspiranteResponseDto>
+@model X.PagedList.IPagedList<GestionPruebas.Web.Models.Dto.AspiranteDto>
 
 <div class="wrapper_st">
     <div class="wrapper">
@@ -14,7 +14,14 @@
         </div>
     </div>
 </div>
-
+<div class="wrapper_st">
+    <div class="wrapper">
+        <a asp-action="DescargarAspirantes">Descargar Información de Aspirantes</a>
+    </div>
+    <div class="wrapper">
+        <a asp-action="Crear">Crear Nuevo Aspirante</a>
+    </div>
+</div>
 
 <div class="wrapper_st">
     <div class="wrapper">
@@ -24,16 +31,25 @@
                     <th>Identificación</th>
                     <th>Nombre</th>
                     <th>Apellido</th>
+                    <th>Teléfono</th>
+                    <th>Editar</th>
+                    <th>Asignar Prueba</th>
+                    <th>Eliminar</th>
                 </tr>
             </thead>
             <tbody>
-                @*@if (Model != null)
+                @if (Model != null)
                 {
-                    @foreach (var departamentos in Model)
+                    @foreach (var item in Model)
                     {
                         <tr>
-                            <td>@departamentos.NomDep</td>
-                            <td class="num">@departamentos.VentasAcumuladas</td>
+                            <td>@item.NumeroDocumento</td>
+                            <td>@item.Nombre</td>
+                            <td>@item.Apellido</td>
+                            <td>@item.Telefono</td>
+                            <td> <a asp-action="Editar" asp-route-id="@item.Id">Editar</a></td>
+                            <td> <a asp-action="ListAsignacionPrueba" asp-route-id="@item.Id">Asignar</a></td>
+                            <td> <a asp-action="Eliminar" asp-route-id="@item.Id" class="btn btn-danger" onclick="return confirm('¿Está seguro de que desea eliminar a este aspirante?')">Eliminar</a></td>
                         </tr>
                     }
                 }
@@ -42,23 +58,9 @@
                     <tr>
                         <td colspan="2">No hay resultados disponibles.</td>
                     </tr>
-                }*@
+                }
             </tbody>
         </table>
     </div>
 </div>
 
-<script>
-
-    var elementosNum = document.querySelectorAll('.num');
-
-    function agregarSeparadorDeMiles(numero) {
-        return numero.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    }
-
-    elementosNum.forEach(function (elemento) {
-        var numeroSinSeparador = parseInt(elemento.textContent, 10);
-        elemento.textContent = agregarSeparadorDeMiles(numeroSinSeparador);
-    });
-
-</script>

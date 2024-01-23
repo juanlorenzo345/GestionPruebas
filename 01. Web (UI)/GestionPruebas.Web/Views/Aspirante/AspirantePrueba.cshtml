@@ -1,0 +1,47 @@
+﻿@using GestionPruebas.Web.Models.Dto;
+@model GestionPruebas.Web.Models.Dto.AspirantePruebaSeleccionResponseDto
+
+<div class="wrapper_st">
+    <div class="wrapper">
+        <a asp-action="AsignarPrueba" asp-route-id="@ViewContext.RouteData.Values["id"]">Asignar Nueva Prueba</a>
+    </div>
+</div>
+
+<div class="wrapper_st">
+    <div class="wrapper">
+        <table class="tabla-responsive">
+            <thead>
+                <tr>
+                    <th>Nombre Aspirante</th>
+                    <th>Nombre Prueba</th>
+                    <th>Calificación</th>
+                    <th>Estado Prueba</th>
+                    <th>Editar</th>
+                    <th>Eliminar</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null)
+                {
+                    @foreach (var item in Model.aspirantePruebaSeleccions)
+                    {
+                        <tr>
+                            <td>@item.Aspirante</td>
+                            <td>@item.PruebaSeleccion</td>
+                            <td>@item.Calificacion</td>
+                            <td>@item.EstadoPrueba</td>
+                            <td> <a asp-action="EditarAsignacion" asp-route-id="@item.Id">Editar</a></td>
+                            <td> <a asp-action="EliminarAsignacion" asp-route-id="@item.Id" class="btn btn-danger" onclick="return confirm('¿Está seguro de que desea eliminar la asignación?')">Eliminar</a></td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="2">No hay resultados disponibles.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

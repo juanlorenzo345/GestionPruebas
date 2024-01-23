@@ -1,0 +1,57 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Pruebas Selección";
+}
+@model GestionPruebas.Web.Models.Dto.PruebaSeleccionDto
+
+<div class="wrapper_st">
+    <div class="wrapper">
+        <h1>Crear una Prueba de Selección</h1>
+        <div class="loader-container">
+            <div class="loader"></div>
+        </div>
+    </div>
+</div>
+
+
+<div class="wrapper_st">
+    <div class="wrapper">
+        <form asp-action="GuardarCreacion" method="post">
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="NombreDescripcion">Nombre Prueba</label>
+                <input asp-for="NombreDescripcion" class="form-control" />
+
+                <label asp-for="IdTipoPrueba">Tipo Prueba</label>
+                <select asp-for="IdTipoPrueba">
+                    <option value="0">Seleccione...</option>
+                    <option value="1">Técnica</option>
+                    <option value="2">Práctica</option>
+                </select>
+
+                <label asp-for="IdLenguajeProgramacion">Lenguaje de Programacion</label>
+                <select asp-for="IdLenguajeProgramacion">
+                    <option value="0">Seleccione...</option>
+                    <option value="1">.NET</option>
+                    <option value="2">Java</option>
+                    <option value="3">Python</option>
+                    <option value="4">JavaScript</option>
+                </select>
+
+                <label asp-for="CantidadPreguntas">Cantidad Preguntas</label>
+                <input asp-for="CantidadPreguntas" class="form-control" />
+
+                <label asp-for="IdNivel">Nivel</label>
+                <select asp-for="IdNivel">
+                    <option value="0">Seleccione...</option>
+                    <option value="1">Junior</option>
+                    <option value="2">Middle</option>
+                    <option value="3">Senior</option>
+                </select>
+            </div>
+
+            <button type="submit" class="boton-primario">Guardar</button>
+        </form>
+    </div>
+</div>
+

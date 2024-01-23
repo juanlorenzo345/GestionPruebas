@@ -301,6 +301,11 @@ G:\Mi unidad\Prueba Técnicas\OLSoftware\GestionPruebas\01. Web (UI)\GestionPrue
 G:\Mi unidad\Prueba Técnicas\OLSoftware\GestionPruebas\01. Web (UI)\GestionPruebas.Web\bin\Debug\net6.0\Microsoft.CodeAnalysis.CSharp.dll
 G:\Mi unidad\Prueba Técnicas\OLSoftware\GestionPruebas\01. Web (UI)\GestionPruebas.Web\bin\Debug\net6.0\Microsoft.CodeAnalysis.Razor.dll
 G:\Mi unidad\Prueba Técnicas\OLSoftware\GestionPruebas\01. Web (UI)\GestionPruebas.Web\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+G:\Mi unidad\Prueba Técnicas\OLSoftware\GestionPruebas\01. Web (UI)\GestionPruebas.Web\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
+G:\Mi unidad\Prueba Técnicas\OLSoftware\GestionPruebas\01. Web (UI)\GestionPruebas.Web\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+G:\Mi unidad\Prueba Técnicas\OLSoftware\GestionPruebas\01. Web (UI)\GestionPruebas.Web\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+G:\Mi unidad\Prueba Técnicas\OLSoftware\GestionPruebas\01. Web (UI)\GestionPruebas.Web\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+G:\Mi unidad\Prueba Técnicas\OLSoftware\GestionPruebas\01. Web (UI)\GestionPruebas.Web\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
 G:\Mi unidad\Prueba Técnicas\OLSoftware\GestionPruebas\01. Web (UI)\GestionPruebas.Web\bin\Debug\net6.0\X.PagedList.dll
 G:\Mi unidad\Prueba Técnicas\OLSoftware\GestionPruebas\01. Web (UI)\GestionPruebas.Web\bin\Debug\net6.0\cs\Microsoft.CodeAnalysis.resources.dll
 G:\Mi unidad\Prueba Técnicas\OLSoftware\GestionPruebas\01. Web (UI)\GestionPruebas.Web\bin\Debug\net6.0\de\Microsoft.CodeAnalysis.resources.dll

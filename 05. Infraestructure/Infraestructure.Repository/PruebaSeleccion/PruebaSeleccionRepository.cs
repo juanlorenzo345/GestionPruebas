@@ -16,7 +16,28 @@ namespace Infraestructure.Repository
         }
         public async Task<PruebaSeleccionGetResponse> GetPruebaSeleccionAsync()
         {
-            var response = await tasksDbContext.PruebaSeleccions.ToListAsync();
+            var response = await tasksDbContext.PruebaSeleccions
+            .Where(p => p.Estado)
+            .Include(p => p.IdTipoPruebaNavigation)
+            .Include(p => p.IdLenguajeProgramacionNavigation)
+            .Include(p => p.IdNivelNavigation)
+            .OrderByDescending(p => p.FechaActualizacion)
+            .Select(p => new PruebaSeleccionDto
+            {
+                Id = p.Id,
+                NombreDescripcion = p.NombreDescripcion,
+                IdTipoPrueba = p.IdTipoPrueba,
+                TipoPrueba= p.IdTipoPruebaNavigation.Descripcion, 
+                IdLenguajeProgramacion = p.IdLenguajeProgramacion,
+                LenguajeProgramacion = p.IdLenguajeProgramacionNavigation.Descripcion, 
+                CantidadPreguntas = p.CantidadPreguntas,
+                IdNivel = p.IdNivel,
+                Nivel = p.IdNivelNavigation.Descripcion, 
+                IdUsuarioActualizacion = p.IdUsuarioActualizacion,
+                FechaActualizacion = p.FechaActualizacion
+            })
+            .ToListAsync();
+
             return new PruebaSeleccionGetResponse { Success = true, pruebaSeleccions = response };
         }
 
@@ -34,6 +55,7 @@ namespace Infraestructure.Repository
                     IdLenguajeProgramacion = response.IdLenguajeProgramacion,
                     CantidadPreguntas = response.CantidadPreguntas,
                     IdNivel = response.IdNivel,
+                    Estado = response.Estado,
                     IdUsuarioActualizacion = response.IdUsuarioActualizacion,
                     FechaActualizacion = response.FechaActualizacion
                 };
@@ -61,6 +83,7 @@ namespace Infraestructure.Repository
                     IdTipoPrueba = request.IdTipoPrueba,
                     IdLenguajeProgramacion = request.IdLenguajeProgramacion,
                     CantidadPreguntas = request.CantidadPreguntas,
+                    Estado = true,
                     IdNivel = request.IdNivel,
                     IdUsuarioActualizacion = request.IdUsuarioActualizacion,
                     FechaActualizacion = DateTime.Now,
@@ -73,6 +96,7 @@ namespace Infraestructure.Repository
                 entity.IdTipoPrueba = request.IdTipoPrueba;
                 entity.IdLenguajeProgramacion= request.IdLenguajeProgramacion;
                 entity.CantidadPreguntas = request.CantidadPreguntas;
+                entity.Estado = request.Estado;
                 entity.IdNivel = request.IdNivel;
                 entity.IdUsuarioActualizacion = request.IdUsuarioActualizacion;
                 entity.FechaActualizacion = DateTime.Now;
@@ -96,6 +120,7 @@ namespace Infraestructure.Repository
                 IdTipoPrueba = request.IdTipoPrueba,
                 IdLenguajeProgramacion = request.IdLenguajeProgramacion,
                 CantidadPreguntas = request.CantidadPreguntas,
+                Estado= request.Estado,
                 IdNivel = request.IdNivel,
                 IdUsuarioActualizacion = request.IdUsuarioActualizacion,
                 FechaActualizacion = DateTime.Now,
